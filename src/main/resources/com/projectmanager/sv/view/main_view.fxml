@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.projectmanager.sv.controller.MainController"
+            prefWidth="1220" prefHeight="780"
+            style="-fx-background-color: #f4f6f9;">
+    <left>
+        <VBox prefWidth="210" spacing="6" style="-fx-background-color: #263238; -fx-padding: 16;">
+            <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-padding: 0 0 14 0;">
+                <Label text="PM" style="-fx-background-color: #1976d2; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 6 10;"/>
+                <Label text="Gestor de proyectos" style="-fx-text-fill: white; -fx-font-size: 15px; -fx-font-weight: bold;"/>
+            </HBox>
+            <Button fx:id="projectsMenuButton" text="Proyectos" onAction="#handleShowProjects" maxWidth="Infinity"/>
+            <Button fx:id="deliverablesMenuButton" text="Entregables" onAction="#handleShowDeliverables" maxWidth="Infinity"/>
+            <Button fx:id="sprintsMenuButton" text="Sprints" onAction="#handleShowSprints" maxWidth="Infinity"/>
+            <Region VBox.vgrow="ALWAYS"/>
+            <Separator style="-fx-opacity: 0.2;"/>
+        </VBox>
+    </left>
+    <center>
+        <StackPane style="-fx-padding: 12;">
+            <StackPane fx:id="projectsView">
+                <fx:include source="projects_view.fxml"/>
+            </StackPane>
+            <StackPane fx:id="deliverablesView">
+                <fx:include source="deliverables_view.fxml"/>
+            </StackPane>
+            <StackPane fx:id="sprintsView">
+                <fx:include source="sprints_view.fxml"/>
+            </StackPane>
+        </StackPane>
+    </center>
+    <bottom>
+        <HBox alignment="CENTER_RIGHT" style="-fx-background-color: #263238; -fx-padding: 6 16;">
+            <Label fx:id="dbStatusLabel" style="-fx-text-fill: #cfd8dc; -fx-font-size: 11px;"/>
+        </HBox>
+    </bottom>
+</BorderPane>
